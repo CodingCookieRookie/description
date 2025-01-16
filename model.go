@@ -142,6 +142,8 @@ type Model interface {
 	PasswordHash() string
 
 	AddBlockDevice(string, BlockDeviceArgs) error
+
+	SetEnvironVersion(environVersion int)
 }
 
 // ModelArgs represent the bare minimum information that is needed
@@ -375,6 +377,11 @@ func (m *model) LatestToolsVersion() version.Number {
 // EnvironVersion implements Model.
 func (m *model) EnvironVersion() int {
 	return m.EnvironVersion_
+}
+
+// SetEnvironVersion implements Model.
+func (m *model) SetEnvironVersion(v int) {
+	m.EnvironVersion_ = v
 }
 
 // Blocks implements Model.
